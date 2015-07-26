@@ -5,7 +5,8 @@ import pprint
 def main(text):
     tuples = get_tupels(text)
     counted = count_word_pairs(tuples)
-    pprint.pprint(counted)
+    filtered = [item for item in counted.most_common() if item[1] > 1]
+    pprint.pprint(filtered)
 
 def get_tupels(text):
     lower = text.lower()
