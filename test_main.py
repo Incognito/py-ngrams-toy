@@ -1,17 +1,14 @@
-import pytest
-import textwrap
-
-from main import *
+from main import main
 
 class TestClass:
     def test_example(self):
-        inputPhrase = textwrap.dedent("""Hello, I like nuts. Do you like nuts? No? Are you sure?
+        inputPhrase = """Hello, I like nuts. Do you like nuts? No? Are you sure?
         Why don't you like nuts? Are you nuts? I like you
-        """)
-        expectedResult = textwrap.dedent("""Are you: 2
-        like nuts: 3
-        you like: 3
-        I like: 2
-        """)
-        assert expectedResult == main(inputPhrase)
+        """
+        expectedResult = """like you: 3
+like nuts: 3
+are you: 2
+like i: 2"""
 
+        #This fails because the object order is not assured
+        assert expectedResult == main(inputPhrase)
