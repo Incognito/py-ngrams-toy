@@ -1,6 +1,6 @@
 from textblob import TextBlob
 from collections import Counter
-import pprint
+import sys
 
 def main(text):
     tuples = get_tupels(text)
@@ -29,3 +29,6 @@ def display(results):
 
     return output
 
+if __name__ == "__main__":
+    for line in sys.stdin:
+        print(main(line))
